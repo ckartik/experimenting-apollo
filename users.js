@@ -5,6 +5,7 @@ const fetch = require("node-fetch");
 const port = 4001;
 const apiUrl = "http://localhost:3000";
 
+// Subgraph for Users Service.
 const typeDefs = gql`
     type User @key(fields: "id") {
         id: ID!
@@ -23,6 +24,7 @@ const typeDefs = gql`
     }
 `;
 
+// All data is fetched from json datastore under the /users resource "Table" of sorts.
 const resolvers = {
    User: {
         __resolveReference(ref) {
@@ -37,6 +39,7 @@ const resolvers = {
             const res = await fetch(`${apiUrl}/users`);
             const users = await res.json();
 
+            // NOTE: This is the key line of code for the link between the post back to the authoer/user.
             return users.filter(({posts}) => posts.includes(parseInt(post.id)))[0];
         }
     },
