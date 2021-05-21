@@ -1,12 +1,18 @@
-const { ApolloServer, gql } = require('apollo-server');
+const { ApolloServer} = require('apollo-server');
+const { ApolloGateway} = require('@apollo/gateway');
 
-const typeDefs = gql`
+const port = 4000;
 
-  type Post {
-    title: String
-    user: String!
-  }
-  type Query {
-    posts: [Post]
-  }
-`;
+
+const gateway = new ApolloGateway( {
+  serviceList: [{ name: "users", url: "http://localhost:4001"}],
+});
+
+const server = new ApolloServer({
+  gateway,
+  subscriptions: false,
+});
+
+server.listen({ port }).then( (url) => {
+    console.log(`Server ready at ${url}`)
+});
