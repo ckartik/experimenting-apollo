@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "concurrently -k npm:server:*"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server:rest": "json-server -q db.json",
+    "server:users": "nodemon users.js",
+    "server:graphql": "nodemon index.js"
   },
   "keywords": [],
   "author": "",

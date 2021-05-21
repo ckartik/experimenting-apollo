@@ -1,0 +1,15 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name":"Kartik Chopra"
+        }
+    ],
+    "posts": [
+        {
+            "id": 1,
+            "name": "Example Post",
+            "date": "2020-12-12"
+        }
+    ]
+}
