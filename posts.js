@@ -9,8 +9,7 @@ const typeDefs = gql`
         id: ID!
         name: String
         updatedAt: String
-        createdAt: String
-        author: User!
+        createdAt: String!
     }
 
     extend type User @key(fields: "id") {
@@ -28,9 +27,6 @@ const resolvers = {
         __resolveReference(ref) {
             return fetch(`${apiUrl}/posts/${ref.id}`).then(res => res.json());
         },
-        author(post) {
-            return { __typename: "User", id: post.id };
-        }
     },
     Query: {
         fetchPost(_, { id }) {

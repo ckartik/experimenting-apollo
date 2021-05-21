@@ -14,11 +14,11 @@ const typeDefs = gql`
 
     extend type Post @key(fields: "id") {
         id: ID! @external
-        users: [User]
+        author: User
     }
 
     extend type Query {
-        fetchUser(id: ID!): User
+        fetchUser(id: ID!): User!
         fetchAllUsers: [User!]!
     }
 `;
@@ -33,11 +33,11 @@ const resolvers = {
         }
     },
     Post: {
-       async users(post) {
+       async author(post) {
             const res = await fetch(`${apiUrl}/users`);
-            const users = res.json();
+            const users = await res.json();
 
-            return users.filter(({posts}) => posts.includes(parseInt(post.id)));
+            return users.filter(({posts}) => posts.includes(parseInt(post.id)))[0];
         }
     },
  
