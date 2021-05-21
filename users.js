@@ -60,5 +60,5 @@ const server = new ApolloServer({
 
 
 server.listen({port}).then(({url, port}) => {
-    console.log(`User subgraph on port:${port} \n ready at: ${url}`);
+    console.log(`User subgraph on port:${port} ready at: ${url}`);
 });

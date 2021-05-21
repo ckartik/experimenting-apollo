@@ -5,6 +5,7 @@ const fetch = require("node-fetch");
 const port = 4002;
 const apiUrl = "http://localhost:3000";
 
+// Subgraph for Posts service.
 const typeDefs = gql`
     type Post @key(fields: "id"){
         id: ID!
@@ -23,6 +24,7 @@ const typeDefs = gql`
     }
 `;
 
+// All data is fetched from json datastore under the /posts resource "Table" of sorts.
 const resolvers = {
     Post: {
         __resolveReference(ref) {
@@ -45,5 +47,5 @@ const server = new ApolloServer({
 
 
 server.listen({port}).then(({url, port}) => {
-    console.log(`Posts subgraph on port:${port} \n ready at: ${url}`);
+    console.log(`Posts subgraph on port:${port} ready at: ${url}`);
 });
