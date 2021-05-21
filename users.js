@@ -19,7 +19,7 @@ const typeDefs = gql`
 
     extend type Query {
         fetchUser(id: ID!): User
-        fetchAllUsers: [User]
+        fetchAllUsers: [User!]!
     }
 `;
 

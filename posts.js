@@ -18,8 +18,8 @@ const typeDefs = gql`
     }
 
     extend type Query {
-        fetchPost(id: ID!): Post 
-        fetchAllPosts: [Post]
+        fetchPost(id: ID!): Post!
+        fetchAllPosts: [Post!]!
     }
 `;
 
