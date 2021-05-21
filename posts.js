@@ -9,14 +9,13 @@ const typeDefs = gql`
         id: ID!
         name: String
         author: User!
-        likes: [User]
-        dislikes: [User]
         updatedAt: String
         createdAt: String!
     }
 
     extend type User @key(fields: "id") {
         id: ID! @external
+        posts: [Post]
     }
 
     extend type Query {
@@ -26,6 +25,11 @@ const typeDefs = gql`
 `;
 
 const resolvers = {
+    Post: {
+        __resolveReference(ref) {
+            return fetch(`${apiUrl}/posts/${ref.id}`).then(res => res.json)
+        }
+    },
     Query: {
         fetchPost(_, { id }) {
             return fetch(`${apiUrl}/posts/${id}`).then(res => res.json());
