@@ -5,17 +5,16 @@ const port = 4002;
 const apiUrl = "http://localhost:3000";
 
 const typeDefs = gql`
-    type Post {
+    type Post @key(fields: "id"){
         id: ID!
         name: String
-        author: User!
         updatedAt: String
         createdAt: String!
+        author: User
     }
 
     extend type User @key(fields: "id") {
         id: ID! @external
-        posts: [Post]
     }
 
     extend type Query {
@@ -27,7 +26,10 @@ const typeDefs = gql`
 const resolvers = {
     Post: {
         __resolveReference(ref) {
-            return fetch(`${apiUrl}/posts/${ref.id}`).then(res => res.json)
+            return fetch(`${apiUrl}/posts/${ref.id}`).then(res => res.json());
+        },
+        author(post) {
+            return { __typename: "User", id: post.id };
         }
     },
     Query: {

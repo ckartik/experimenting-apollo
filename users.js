@@ -24,9 +24,12 @@ const typeDefs = gql`
 `;
 
 const resolvers = {
-    User: {
+   User: {
+        __resolveReference(ref) {
+            return fetch(`${apiUrl}/users/${ref.id}`).then(res => res.json());
+        },
         posts(user) {
-            return user.posts.map(id => ({__typename: "User", id}));
+            return user.posts.map(id => ({__typename: "Post", id}));
         }
     },
     Post: {
@@ -34,9 +37,10 @@ const resolvers = {
             const res = await fetch(`${apiUrl}/users`);
             const users = res.json();
 
-            return users.filter(({posts}) => post.includes(parseInt(post.id)));
+            return users.filter(({posts}) => posts.includes(parseInt(post.id)));
         }
     },
+ 
     Query: {
         fetchUser(_, { id }) {
             return fetch(`${apiUrl}/users/${id}`).then(res => res.json());

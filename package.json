@@ -8,6 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server:rest": "json-server -q db.json",
     "server:users": "nodemon users.js",
+    "server:posts": "nodemon posts.js",
     "server:graphql": "nodemon index.js"
   },
   "keywords": [],

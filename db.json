@@ -2,7 +2,8 @@
     "users": [
         {
             "id": 1,
-            "name":"Kartik Chopra"
+            "name":"Kartik Chopra",
+            "posts": [1]
         }
     ],
     "posts": [
