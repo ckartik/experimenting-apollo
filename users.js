@@ -1,5 +1,5 @@
 const { ApolloServer, gql } = require('apollo-server');
-const {buildFederatedSchema} = require("@apollo");
+const {buildFederatedSchema} = require("@apollo/federation");
 const fetch = require("node-fetch");
 const port = 4001;
 const apiUrl = "http://localhost:3000";
@@ -32,6 +32,6 @@ const server = new ApolloServer({
 });
 
 
-server.listen({port}).then((url) => {
+server.listen({port}).then(({url, port}) => {
     console.log(`User subgraph on port:${port} \n ready at: ${url}`);
 });

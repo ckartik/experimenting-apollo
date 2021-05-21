@@ -3,7 +3,6 @@ const { ApolloGateway} = require('@apollo/gateway');
 
 const port = 4000;
 
-
 const gateway = new ApolloGateway( {
   serviceList: [{ name: "users", url: "http://localhost:4001"}],
 });
@@ -13,6 +12,6 @@ const server = new ApolloServer({
   subscriptions: false,
 });
 
-server.listen({ port }).then( (url) => {
+server.listen({ port }).then( ({url}) => {
     console.log(`Server ready at ${url}`)
 });
