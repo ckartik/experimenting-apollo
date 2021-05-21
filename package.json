@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "concurrently -k npm:server:*"
+    "server": "concurrently -k npm:server:*",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server:rest": "json-server -q db.json",
     "server:users": "nodemon users.js",
