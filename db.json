@@ -4,13 +4,53 @@
             "id": 1,
             "name":"Kartik Chopra",
             "posts": [1]
-        }
+        },
+        {
+            "id": 2,
+            "name":"Jakob Pizzera",
+            "posts": [2]
+        },
+        {
+            "id": 3,
+            "name":"Nathan Di Lucca",
+            "posts": [3]
+        },
+        {
+            "id": 4,
+            "name":"dj khaled",
+            "posts": [4,5,6]
+        },
     ],
     "posts": [
         {
             "id": 1,
             "name": "Example Post",
-            "date": "2020-12-12"
+            "createdAt": "2020-12-12"
+        },
+        {
+            "id": 2,
+            "name": "Why One Wealth is better than shopify",
+            "createdAt": "2020-12-12"
+        },
+        {
+            "id": 3,
+            "name": "How to become a tech wizard",
+            "createdAt": "2020-12-12"
+        },
+        {
+            "id": 4,
+            "name": "Another one and another one",
+            "createdAt": "2020-12-12"
+        },
+        {
+            "id": 5,
+            "name": "Another one and another one and another one and another one",
+            "createdAt": "2020-12-12"
+        },
+        {
+            "id": 6,
+            "name": "How I took the hinges off the door",
+            "createdAt": "2020-12-12"
         }
     ]
 }
