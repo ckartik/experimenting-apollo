@@ -9,8 +9,8 @@ const typeDefs = gql`
         id: ID!
         name: String
         updatedAt: String
-        createdAt: String!
-        author: User
+        createdAt: String
+        author: User!
     }
 
     extend type User @key(fields: "id") {
