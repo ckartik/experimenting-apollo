@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "concurrently -k npm:server:*",
+    "server": "concurrently -k npm:app:server:*",
+    "app": "concurrently -k npm:app:*",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server:rest": "json-server -q db.json",
-    "server:users": "nodemon users.js",
-    "server:posts": "nodemon posts.js",
-    "server:graphql": "nodemon index.js"
+    "app:dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "app:server:rest": "json-server -q Backend/db.json",
+    "app:server:users": "nodemon Backend/users.js",
+    "app:server:posts": "nodemon Backend/posts.js",
+    "app:server:graphql": "nodemon Backend/index.js"
   },
   "keywords": [],
   "author": "",
