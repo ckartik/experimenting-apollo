@@ -3,7 +3,7 @@ const {buildFederatedSchema} = require("@apollo/federation");
 const fetch = require("node-fetch");
 
 const port = 4002;
-const apiUrl = "http://localhost:3000";
+const apiUrl = "http://localhost:3001";
 
 // Subgraph for Posts service.
 const typeDefs = gql`

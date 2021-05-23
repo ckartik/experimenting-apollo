@@ -10,7 +10,7 @@
     "app:dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "app:server:rest": "json-server -q Backend/db.json",
+    "app:server:rest": "json-server --port 3001 -q Backend/db.json",
     "app:server:users": "nodemon Backend/users.js",
     "app:server:posts": "nodemon Backend/posts.js",
     "app:server:graphql": "nodemon Backend/index.js"
