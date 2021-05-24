@@ -19,6 +19,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@apollo/client": "^3.3.19",
     "@apollo/federation": "^0.25.0",
     "@apollo/gateway": "^0.28.1",
     "apollo-server": "^2.24.1",
